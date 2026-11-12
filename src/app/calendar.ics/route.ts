@@ -23,7 +23,8 @@ export function GET() {
     let first = today;
     while (weekday(first) !== s.dow) first = addDays(first, 1);
     const [h, m] = s.time24.split(":").map(Number);
-    const end = `${String(Math.min(23, h + (s.minutes ?? 90) / 60 | 0)).padStart(2, "0")}:${String((m + ((s.minutes ?? 90) % 60)) % 60).padStart(2, "0")}`;
+    const endMin = Math.min(23 * 60 + 59, h * 60 + m + (s.minutes ?? 90));
+    const end = `${String(Math.floor(endMin / 60)).padStart(2, "0")}:${String(endMin % 60).padStart(2, "0")}`;
     lines.push(
       "BEGIN:VEVENT",
       `UID:${s.id}@${new URL(siteUrl).hostname}`,

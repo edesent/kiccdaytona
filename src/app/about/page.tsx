@@ -32,7 +32,7 @@ export default function AboutPage() {
             src="/photos/pastors-sunday-banner.jpg"
             alt="Lady Qutila Simmons in a plaid jacket and Apostle-Elect J. DeNard Simmons in a red clergy shirt and black vest, smiling together behind a small lectern with a closed Bible on it."
             width={960}
-            height={960}
+            height={800}
             sizes="(min-width:1024px) 480px, 92vw"
             className="w-full rounded-sm ring-2 ring-gold"
           />
