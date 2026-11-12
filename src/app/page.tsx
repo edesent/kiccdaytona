@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CashQr from "@/components/CashQr";
 import FlyerWall from "@/components/FlyerWall";
+import KiccMap, { livePlaces } from "@/components/KiccMap";
 import PrayerForm from "@/components/PrayerForm";
 import Seal from "@/components/Seal";
 import ThisWeek from "@/components/ThisWeek";
@@ -297,8 +298,8 @@ export default function Home() {
       {/* ───────── Installation & anniversary ───────── */}
       <section className="on-dark relative overflow-hidden">
         <div className="rim" />
-        <div className="wrap grid items-center gap-10 py-16 md:grid-cols-[auto_1fr] md:gap-16 md:py-24">
-          <Seal uid="inst" className="mx-auto h-[230px] w-[230px] md:h-[330px] md:w-[330px]" />
+        <div className="wrap grid items-center gap-12 py-16 md:py-24 lg:grid-cols-[minmax(0,500px)_1fr] lg:gap-16">
+          <KiccMap className="mx-auto w-full max-w-[500px]" />
           <div data-reveal>
             <p className="caps text-gold-hi">Coming up · Est. MMXXIII</p>
             <h2 className="display mt-3 text-[2.6rem] text-cream [text-wrap:balance] md:text-[4.2rem]">
@@ -323,6 +324,24 @@ export default function Home() {
               <Link href="/contact" className="btn btn-line">
                 Send me the details
               </Link>
+            </div>
+
+            <div className="mt-10 border-t border-gold/40 pt-6">
+              <p className="caps text-gold-hi">On the map · where KICC shows up until then</p>
+              <ol className="mt-4 space-y-3">
+                {livePlaces().map((p, i) => (
+                  <li key={p.id} className="grid grid-cols-[34px_1fr] items-start gap-3">
+                    <span className="time flex h-[30px] w-[30px] items-center justify-center rounded-full bg-gold text-sm font-extrabold text-night">{p.home ? "♛" : i + 1}</span>
+                    <span>
+                      <span className="font-display text-xl font-bold text-cream">{p.title}</span>
+                      <span className="time block text-[0.95rem] text-cream/80">
+                        {p.where} · {p.when}
+                      </span>
+                    </span>
+                  </li>
+                ))}
+              </ol>
+              <p className="mt-4 text-sm text-cream/65">The new church address gets its own pin the day it’s announced.</p>
             </div>
           </div>
         </div>

@@ -31,6 +31,7 @@ Preview: https://kiccdaytona.elijahdesent.com (hidden from search engines; see "
 | **A flyer** (add, edit, remove) | `flyers` in `src/lib/site.ts`; image in `public/flyers/`. Each has an `endsOn` date and takes itself down the day after |
 | The apostolic installation / anniversary date | `installation` in `src/lib/site.ts`, plus an entry in `events` |
 | Sunday worship, once it has a home | add a service to `services` in `src/lib/site.ts` (example in the comment there) |
+| A pin on the home-page map | `places` in `src/lib/site.ts` (latitude and longitude). The map itself is `components/KiccMap.tsx` over `public/map/daytona-beach.svg`, drawn from U.S. Census data by `scripts/mkmap.py` |
 | Photos | `public/photos/`. Alt text sits beside each image where it is used |
 
 ## How it works

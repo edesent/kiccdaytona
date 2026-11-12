@@ -430,3 +430,20 @@ export const flyers: Flyer[] = [
     cta: { label: "Tell me when it’s announced", href: "/contact" },
   },
 ];
+
+/**
+ * MAP PINS. The places KICC shows up, drawn on the green-and-gold map of
+ * Daytona Beach on the home page (components/KiccMap.tsx). A pin with an
+ * `endsOn` date takes itself off the map the day after. To add one, look up
+ * the latitude and longitude of the address (right-click the spot in Google
+ * Maps and copy the two numbers) and add an entry. Set `home: true` on the
+ * church's new address when it is announced and it gets the crown pin.
+ * The map covers Ormond Beach down to Beville Rd, and I-95 to the ocean.
+ */
+export type Place = { id: string; title: string; where: string; when: string; lat: number; lon: number; endsOn?: string; home?: boolean };
+
+export const places: Place[] = [
+  { id: "worship-and-waves", title: "Worship & Waves", where: "Andy Romano Beachfront Park, Ormond Beach", when: "Sat, Nov 14 · 6–9 AM", lat: 29.270806, lon: -81.029633, endsOn: "2026-11-14" },
+  { id: "car-wash", title: "Kidz & Krew Car Wash", where: "1000 W. International Speedway Blvd", when: "Sat, Nov 28 · 8 AM until", lat: 29.203445, lon: -81.040072, endsOn: "2026-11-28" },
+  { id: "streetz-nov-1", title: "KICC-N the Streetz giveback", where: "316 North St", when: "Held Nov 1 · food, clothes, toiletries", lat: 29.221657, lon: -81.029024 },
+];
